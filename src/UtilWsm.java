@@ -16,7 +16,7 @@ public class UtilWsm {
             BufferedReader bf1 = new BufferedReader(new FileReader(f1)) ;
             BufferedReader bf2 = new BufferedReader(new FileReader(f2)) ;
             BufferedWriter bw = new BufferedWriter(new FileWriter(f3));
-            BufferedWriter bw1 = new BufferedWriter(new FileWriter(f4));
+            BufferedWriter bw1 = new BufferedWriter(new FileWriter(f4, true));
 
             while((s=bf1.readLine())!=null){
                 if(s.indexOf("=")==-1){
@@ -36,13 +36,6 @@ public class UtilWsm {
                             m2 = m.substring(m.indexOf("=w=")+3).trim();
 
                             if(m1.equals(s1)){
-                                if(m1.equals("货值")){
-                                    if(s1.equals("huozhi")){
-
-                                    }
-                                    System.out.println();
-
-                                };
                                 bw.write(s2);
                                 bw.write("=");
                                 bw.write(m2);
