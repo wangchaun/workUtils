@@ -5,8 +5,8 @@ public class TransUpdateSysDictionaryUtils {
     public static void main(String[] args) {
 
         File f1 = new File("/Users/wangsiming/Desktop/1.txt");
-        File f2 = new File("/Users/wangsiming/Desktop/i18N/jpAll.txt");
-        File f3 = new File("/Users/wangsiming/Desktop/sql-sys_dictionary—ja-Jp.txt");
+        File f2 = new File("/Users/wangsiming/Desktop/i18N/usAll.txt");
+        File f3 = new File("/Users/wangsiming/Desktop/sql-sys_dictionary—en_US.txt");
         File f4 = new File("/Users/wangsiming/Desktop/sys_dictionary-unfind.txt");
         String s,s1,sCopy;
         String m,m1,m2;
@@ -21,11 +21,14 @@ public class TransUpdateSysDictionaryUtils {
             while ((s = bf1.readLine()) != null) {
                 int init = s.indexOf("dic_content");
                 int end = s.indexOf("yn");
-                s1 = s.substring(init+14,end-4);
+                s1 = s.substring(init+16,end-4).trim();
                 sCopy = s;
                 boolean find = false;
 
                 while((m=bf2.readLine())!=null){
+                    if(!m.contains("=w=")){
+                        continue;
+                    }
                     m1 = m.substring(0,m.indexOf("=w=")).trim();
                     m2 = m.substring(m.indexOf("=w=")+3).trim();
                     if(m1.equals(s1)) {
